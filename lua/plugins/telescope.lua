@@ -5,11 +5,13 @@ return {
 	config = function()
 		local arg = vim.fn.argv()[1]
 		if arg ~= nil then
-			local dir_path = arg
+			local path = arg
 			if vim.fn.filereadable(arg) == 1 then
-				dir_path = vim.fs.dirname(arg)
+				path = vim.fs.dirname(arg)
 			end
-			vim.fn.chdir(dir_path)
+			if vim.fn.isdirectory(path) ~= 0 then
+				vim.fn.chdir(path)
+			end
 		end
 		require("telescope").setup({})
 		local builtin = require("telescope.builtin")
