@@ -36,30 +36,36 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
-			require("mason-lspconfig").setup()
-
-			require("mason-lspconfig").setup_handlers({
-				function(server_name)
-					require("lspconfig")[server_name].setup({})
-				end,
-				["rust_analyzer"] = function()
-					require("lspconfig").rust_analyzer.setup({
-						rust_analyzer = {
-							settings = {
-								["rust-analyzer"] = {
-									checkOnSave = {
-										command = "clippy",
-									},
-								},
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"rust_analyzer",
+					"ts_ls",
+					"clangd",
+					"asm_lsp",
+					"bashls",
+					"html",
+					"htmx",
+					"cssls",
+				},
+				automatic_enable = {
+					exclude = { "rust_analyzer", "bashls" },
+				},
+			})
+			require("lspconfig").rust_analyzer.setup({
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							checkOnSave = {
+								command = "clippy",
 							},
 						},
-					})
-				end,
-				["bashls"] = function()
-					require("lspconfig").bashls.setup({
-						filetypes = { "sh", "zsh" },
-					})
-				end,
+					},
+				},
+			})
+
+			require("lspconfig").bashls.setup({
+				filetypes = { "sh", "zsh" },
 			})
 		end,
 	},
@@ -88,6 +94,14 @@ return {
 					PRETTIERD_DEFAULT_CONFIG = vim.fn.expand(vim.fn.stdpath("config") .. "/utils/.prettierrc.json"),
 				},
 			}
+		end,
+	},
+	{
+		"zapling/mason-conform.nvim",
+		config = function()
+			require("mason-conform").setup({
+				ignore_install = { "rustfmt" },
+			})
 		end,
 	},
 	{
