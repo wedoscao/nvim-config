@@ -47,6 +47,7 @@ return {
 					"html",
 					"htmx",
 					"cssls",
+					"marksman",
 				},
 				automatic_enable = {
 					exclude = { "rust_analyzer", "bashls" },
