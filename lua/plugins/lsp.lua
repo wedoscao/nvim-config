@@ -90,13 +90,21 @@ return {
 					lsp_fallback = true,
 					quiet = true,
 				},
-			})
-
-			require("conform").formatters.prettierd = {
-				env = {
-					PRETTIERD_DEFAULT_CONFIG = vim.fn.expand(vim.fn.stdpath("config") .. "/utils/.prettierrc.json"),
+				formatters = {
+					prettierd = {
+						env = {
+							PRETTIERD_DEFAULT_CONFIG = vim.fn.expand(
+								vim.fn.stdpath("config") .. "/utils/.prettierrc.json"
+							),
+						},
+					},
+					["clang-format"] = {
+						prepend_args = {
+							"--style=file:" .. vim.fn.expand(vim.fn.stdpath("config") .. "/utils/.clang-format"),
+						},
+					},
 				},
-			}
+			})
 		end,
 	},
 	{
