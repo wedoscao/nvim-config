@@ -41,15 +41,9 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"rust_analyzer",
-					"ts_ls",
 					"clangd",
 					"asm_lsp",
 					"bashls",
-					"html",
-					"htmx",
-					"cssls",
-					"marksman",
 				},
 				automatic_enable = {
 					exclude = { "rust_analyzer", "bashls" },
