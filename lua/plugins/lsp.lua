@@ -78,6 +78,7 @@ return {
 					javascript = { "prettierd" },
 					typescript = { "prettierd" },
 					json = { "prettierd" },
+					cpp = { "clang-format" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
