@@ -21,3 +21,19 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		vim.keymap.set("n", "<leader>ee", function()
+			local lines = {
+				"if err != nil {",
+				"    ",
+				"}",
+			}
+			vim.api.nvim_put(lines, "l", true, true)
+
+			vim.api.nvim_feedkeys("kkA", "n", false)
+		end, { buffer = true, desc = "Insert if err != nil block" })
+	end,
+})
