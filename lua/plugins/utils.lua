@@ -79,4 +79,18 @@ return {
 			virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
 		},
 	},
+
+	{
+		"brianhuster/live-preview.nvim",
+		dependencies = {
+			-- You can choose one of the following pickers
+			"nvim-telescope/telescope.nvim",
+			"ibhagwan/fzf-lua",
+			"echasnovski/mini.pick",
+			"folke/snacks.nvim",
+		},
+		config = function()
+			require("livepreview.config").set()
+		end,
+	},
 }
