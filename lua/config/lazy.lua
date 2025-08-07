@@ -31,7 +31,7 @@ require("lazy").setup({
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		vim.schedule(function()
-			require("lazy").update({ show = true })
+			require("lazy").update({ show = false })
 		end)
 	end,
 })
