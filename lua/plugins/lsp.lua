@@ -49,7 +49,7 @@ return {
 					exclude = { "rust_analyzer", "bashls" },
 				},
 			})
-			require("lspconfig").rust_analyzer.setup({
+			vim.lsp.config["rust_analyzer"] = {
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {
@@ -59,11 +59,13 @@ return {
 						},
 					},
 				},
-			})
+			}
+			vim.lsp.enable("rust_analyzer")
 
-			require("lspconfig").bashls.setup({
+			vim.lsp.config["bashls"] = {
 				filetypes = { "sh", "zsh" },
-			})
+			}
+			vim.lsp.enable("bashls")
 		end,
 	},
 	{
