@@ -79,6 +79,7 @@ return {
 					c = { "clang-format" },
 					javascript = { "prettierd" },
 					typescript = { "prettierd" },
+					html = { "prettierd" },
 					json = { "prettierd" },
 					cpp = { "clang-format" },
 					go = { "gofmt" },
