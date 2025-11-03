@@ -114,6 +114,7 @@ return {
 					"-interaction=nonstopmode",
 				},
 			}
+			vim.g.vimtex_syntax_enabled = 0
 		end,
 	},
 }
