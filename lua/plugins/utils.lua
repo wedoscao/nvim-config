@@ -108,13 +108,17 @@ return {
 				executable = "latexmk",
 				hooks = {},
 				options = {
-					"-verbose",
 					"-file-line-error",
 					"-synctex=1",
 					"-interaction=nonstopmode",
+					"-verbose",
 				},
 			}
 			vim.g.vimtex_syntax_enabled = 0
+			vim.g.vimtex_quickfix_ignore_log = 1
+			vim.g.vimtex_quickfix_mode = 0
+			vim.g.vimtex_view_general_options = "--unique file:@pdf#src:@line@tex"
+			vim.g.vimtex_view_forward_search_on_start = 0
 		end,
 	},
 }
