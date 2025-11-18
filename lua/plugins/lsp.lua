@@ -111,6 +111,9 @@ return {
 					["google-java-format"] = {
 						prepend_args = { "--aosp" },
 					},
+					["xmlformatter"] = {
+						prepend_args = { "--indent", "4" },
+					},
 				},
 			})
 		end,
