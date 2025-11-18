@@ -13,7 +13,34 @@ return {
 				vim.fn.chdir(path)
 			end
 		end
-		require("telescope").setup({})
+		local config = {
+			-- 1. Configuration for file finders (e.g., :Telescope find_files)
+			file_ignore_patterns = {
+				"%.png$",
+				"%.jpg$",
+				"%.jpeg$",
+				"%.gif$",
+				"%.webp$",
+				"%.ico$",
+				"%.svg$",
+				-- Add any other extensions you want to ignore
+			},
+
+			-- 2. Configuration for live text searching (e.g., :Telescope live_grep)
+			-- This modifies the arguments passed to 'ripgrep' (rg)
+			vimgrep_arguments = {
+				"rg",
+				"--color=never",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+				"--type-not", -- Tells rg to exclude a file type
+				"image", -- The file type defined by rg (includes jpg, png, gif, etc.)
+			},
+		}
+		require("telescope").setup(config)
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
