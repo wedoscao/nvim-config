@@ -85,6 +85,7 @@ return {
 					json = { "prettierd" },
 					cpp = { "clang-format" },
 					go = { "gofmt" },
+					xml = { "xmlformatter" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
