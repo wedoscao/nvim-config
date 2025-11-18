@@ -86,6 +86,9 @@ return {
 					cpp = { "clang-format" },
 					go = { "gofmt" },
 					xml = { "xmlformatter" },
+					java = {
+						"google-java-format",
+					},
 				},
 				format_on_save = {
 					timeout_ms = 500,
@@ -104,6 +107,9 @@ return {
 						prepend_args = {
 							"--style=file:" .. vim.fn.expand(vim.fn.stdpath("config") .. "/utils/.clang-format"),
 						},
+					},
+					["google-java-format"] = {
+						prepend_args = { "--aosp" },
 					},
 				},
 			})
