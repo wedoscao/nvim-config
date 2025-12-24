@@ -1,5 +1,5 @@
 -- User default
-vim.g.colorscheme = "dracula"
+vim.g.colorscheme = "tokyonight-night"
 vim.g.mapleader = " "
 
 -- Neovim options
