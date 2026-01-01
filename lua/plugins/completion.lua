@@ -10,6 +10,7 @@ return {
 			"hrsh7th/cmp-vsnip",
 		},
 		config = function()
+			vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/vsnip"
 			local cmp = require("cmp")
 			cmp.setup({
 				snippet = {
@@ -22,8 +23,8 @@ return {
 					["<TAB>"] = cmp.mapping.confirm({ select = false }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
 					{ name = "vsnip" },
+					{ name = "nvim_lsp" },
 				}, {
 					{ name = "buffer" },
 				}),

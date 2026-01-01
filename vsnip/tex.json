@@ -1,0 +1,62 @@
+{
+    "Inline Math": {
+        "prefix": "mk",
+        "body": ["\\$ ${1} \\$ $0"],
+        "description": "Inline Math"
+    },
+    "Display Math": {
+        "prefix": "dm",
+        "body": ["$$", "\t${1}", "$$ $0"],
+        "description": "Display Math"
+    },
+    "Fraction": {
+        "prefix": "ff",
+        "body": ["\\frac{${1}}{${2}} $0"],
+        "description": "Fraction"
+    },
+    "Summation": {
+        "prefix": "sum",
+        "body": ["\\sum_{${1}}^{${2}} $0"],
+        "description": "Summation"
+    },
+    "Product": {
+        "prefix": "prod",
+        "body": ["\\prod_{${1}}^{${2}} $0"],
+        "description": "Product"
+    },
+    "Vector Bold": {
+        "prefix": "vbf",
+        "body": ["\\mathbf{${1}} $0"],
+        "description": "Bold Vector"
+    },
+    "Math Calligraphic": {
+        "prefix": "cal",
+        "body": ["\\mathcal{${1}} $0"],
+        "description": "Math Calligraphic (Loss/Set)"
+    },
+    "Real Numbers": {
+        "prefix": "rr",
+        "body": ["\\mathbb{R}"],
+        "description": "Real Number Set"
+    },
+    "Expectation": {
+        "prefix": "ee",
+        "body": ["\\mathbb{E}"],
+        "description": "Expectation E"
+    },
+    "Partial Derivative": {
+        "prefix": "part",
+        "body": ["\\frac{\\partial ${1}}{\\partial ${2}} $0"],
+        "description": "Partial Derivative"
+    },
+    "Matrix Parentheses": {
+        "prefix": "pmat",
+        "body": ["\\begin{pmatrix}", "\t${1}", "\\end{pmatrix} $0"],
+        "description": "Matrix (Parentheses)"
+    },
+    "Matrix Brackets": {
+        "prefix": "bmat",
+        "body": ["\\begin{bmatrix}", "\t${1}", "\\end{bmatrix} $0"],
+        "description": "Matrix (Brackets)"
+    }
+}
