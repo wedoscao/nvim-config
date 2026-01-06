@@ -6,7 +6,7 @@
     },
     "Display Math": {
         "prefix": "dm",
-        "body": ["$$", "\t${1}", "$$ $0"],
+        "body": ["\\$\\$", "\t${1}", "\\$\\$ $0"],
         "description": "Display Math"
     },
     "Fraction": {

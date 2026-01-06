@@ -75,7 +75,7 @@ return {
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					rust = { "rustfmt", lsp_format = "fallback" },
+					rust = { "rustfmt" },
 					bash = { "shfmt" },
 					c = { "clang-format" },
 					javascript = { "prettierd" },
@@ -90,10 +90,14 @@ return {
 					java = {
 						"google-java-format",
 					},
+					tex = {
+						"tex-fmt",
+					},
+					bib = { "bibtex-tidy" },
 				},
 				format_on_save = {
-					timeout_ms = 500,
-					lsp_fallback = true,
+					timeout_ms = 3000,
+					lsp_format = "fallback",
 					quiet = true,
 				},
 				formatters = {
@@ -114,6 +118,9 @@ return {
 					},
 					["xmlformatter"] = {
 						prepend_args = { "--indent", "4" },
+					},
+					["tex-fmt"] = {
+						prepend_args = { "--tabsize", "4" },
 					},
 				},
 			})
