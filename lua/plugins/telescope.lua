@@ -15,15 +15,17 @@ return {
 		end
 		local config = {
 			-- 1. Configuration for file finders (e.g., :Telescope find_files)
-			file_ignore_patterns = {
-				"%.png$",
-				"%.jpg$",
-				"%.jpeg$",
-				"%.gif$",
-				"%.webp$",
-				"%.ico$",
-				"%.svg$",
-				-- Add any other extensions you want to ignore
+			defaults = {
+				file_ignore_patterns = {
+					"%.png$",
+					"%.jpg$",
+					"%.jpeg$",
+					"%.gif$",
+					"%.webp$",
+					"%.ico$",
+					"%.svg$",
+					-- Add any other extensions you want to ignore
+				},
 			},
 
 			-- 2. Configuration for live text searching (e.g., :Telescope live_grep)
