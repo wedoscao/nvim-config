@@ -75,7 +75,7 @@ return {
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					rust = { "rustfmt" },
+					rust = { "leptosfmt", "rustfmt" },
 					bash = { "shfmt" },
 					c = { "clang-format" },
 					javascript = { "prettierd" },
@@ -107,6 +107,11 @@ return {
 								vim.fn.stdpath("config") .. "/utils/.prettierrc.json"
 							),
 						},
+					},
+					leptosfmt = {
+						command = "leptosfmt",
+						args = { "--stdin", "--rustfmt" },
+						stdin = true,
 					},
 					["clang-format"] = {
 						prepend_args = {
