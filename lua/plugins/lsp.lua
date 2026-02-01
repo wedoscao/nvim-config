@@ -50,16 +50,28 @@ return {
 					exclude = { "rust_analyzer", "bashls" },
 				},
 			})
+
 			vim.lsp.config["rust_analyzer"] = {
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {
-							checkOnSave = {
-								command = "clippy",
-							},
+				settings = {
+					["rust-analyzer"] = {
+						check = {
+							command = "clippy",
+						},
+						inlayHints = {
+							bindingModeHints = { enable = true },
+							chainingHints = { enable = true },
+							closingBraceHints = { enable = true },
+							parameterHints = { enable = true },
+							typeHints = { enable = true },
 						},
 					},
 				},
+				-- Ensure hints are enabled globally or per buffer
+				on_attach = function(client, bufnr)
+					if client.server_capabilities.inlayHintProvider then
+						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+					end
+				end,
 			}
 			vim.lsp.enable("rust_analyzer")
 
