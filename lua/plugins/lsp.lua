@@ -106,6 +106,7 @@ return {
 						"tex-fmt",
 					},
 					bib = { "bibtex-tidy" },
+					kotlin = { "ktfmt" },
 				},
 				format_on_save = {
 					timeout_ms = 3000,
@@ -138,6 +139,9 @@ return {
 					},
 					["tex-fmt"] = {
 						prepend_args = { "--tabsize", "4" },
+					},
+					ktfmt = {
+						prepend_args = { "--kotlinlang-style" },
 					},
 				},
 			})
