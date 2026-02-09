@@ -95,6 +95,7 @@ return {
 					typescriptreact = { "prettierd" },
 					html = { "prettierd" },
 					json = { "prettierd" },
+					jsonc = { "prettierd" },
 					cpp = { "clang-format" },
 					go = { "gofmt" },
 					xml = { "xmlformatter" },
