@@ -14,7 +14,6 @@ return {
 			end
 		end
 		local config = {
-			-- 1. Configuration for file finders (e.g., :Telescope find_files)
 			defaults = {
 				file_ignore_patterns = {
 					"%.png$",
@@ -24,22 +23,7 @@ return {
 					"%.webp$",
 					"%.ico$",
 					"%.svg$",
-					-- Add any other extensions you want to ignore
 				},
-			},
-
-			-- 2. Configuration for live text searching (e.g., :Telescope live_grep)
-			-- This modifies the arguments passed to 'ripgrep' (rg)
-			vimgrep_arguments = {
-				"rg",
-				"--color=never",
-				"--no-heading",
-				"--with-filename",
-				"--line-number",
-				"--column",
-				"--smart-case",
-				"--type-not", -- Tells rg to exclude a file type
-				"image", -- The file type defined by rg (includes jpg, png, gif, etc.)
 			},
 		}
 		require("telescope").setup(config)

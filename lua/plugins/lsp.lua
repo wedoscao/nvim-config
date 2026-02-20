@@ -78,6 +78,12 @@ return {
 				filetypes = { "sh", "zsh" },
 			}
 			vim.lsp.enable("bashls")
+
+			vim.filetype.add({
+				extension = {
+					tpp = "cpp",
+				},
+			})
 		end,
 	},
 	{
