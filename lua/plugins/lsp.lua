@@ -44,6 +44,7 @@ return {
 					"clangd",
 					"bashls",
 					"texlab",
+					"codebook",
 				},
 				automatic_enable = {
 					exclude = { "rust_analyzer", "bashls" },
