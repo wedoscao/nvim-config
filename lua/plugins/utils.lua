@@ -159,18 +159,18 @@ return {
 							"-O2",
 							"$FILENAME_WITH_EXTENSION",
 							"-o",
-							"$FILENAME_WITHOUT_EXTENSION",
+							"/tmp/$FILENAME_WITHOUT_EXTENSION",
 						},
 					},
 					execute = {
-						main = "./$FILENAME_WITHOUT_EXTENSION",
+						main = "/tmp/$FILENAME_WITHOUT_EXTENSION",
 						args = nil,
 					},
 				},
 			},
 			ui = {
 				border = "single",
-				diff_mode = true,
+				diff_mode = false,
 				title_components_separator = "",
 			},
 			core = {
