@@ -152,10 +152,7 @@ return {
 					compile = {
 						main = "g++",
 						args = {
-							"-Wall",
-							"-Wextra",
-							"-Werror",
-							"-Wpedantic",
+							"-std=c++17",
 							"-O2",
 							"$FILENAME_WITH_EXTENSION",
 							"-o",
