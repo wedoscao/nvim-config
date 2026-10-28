@@ -45,6 +45,7 @@ return {
 					"bashls",
 					"texlab",
 					"codebook",
+					"jdtls",
 				},
 				automatic_enable = {
 					exclude = { "rust_analyzer", "bashls" },
@@ -79,6 +80,40 @@ return {
 				filetypes = { "sh", "zsh" },
 			}
 			vim.lsp.enable("bashls")
+
+			vim.lsp.config["jdtls"] = {
+				-- Plain folders of .java files have no build file, fall back to
+				-- the file's directory so a folder is treated as one project.
+				root_dir = function(bufnr, on_dir)
+					local root = vim.fs.root(bufnr, {
+						"mvnw",
+						"gradlew",
+						"settings.gradle",
+						"settings.gradle.kts",
+						"build.xml",
+						"pom.xml",
+						"build.gradle",
+						"build.gradle.kts",
+						".git",
+					})
+					on_dir(root or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
+				end,
+				settings = {
+					java = {
+						signatureHelp = { enabled = true },
+						contentProvider = { preferred = "fernflower" },
+						completion = {
+							favoriteStaticMembers = {
+								"org.junit.jupiter.api.Assertions.*",
+								"org.junit.Assert.*",
+								"java.util.Objects.requireNonNull",
+								"java.util.Objects.requireNonNullElse",
+							},
+						},
+					},
+				},
+			}
+			vim.lsp.enable("jdtls")
 
 			vim.filetype.add({
 				extension = {
